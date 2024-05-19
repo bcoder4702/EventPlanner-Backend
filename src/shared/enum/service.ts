@@ -1,0 +1,6 @@
+export enum SERVICE {
+    CATERING = 'CATERING',
+    MUSIC = 'MUSIC',
+    PHOTOGRAPHY = 'PHOTOGRAPHY',
+    OTHERS = 'OTHERS'   
+}

@@ -1,8 +1,14 @@
+import { Timestamp } from 'firebase/firestore';
+import { ROLES } from '../shared/enum/index';
+
 export interface User {
   id: string;
-  name: string;
+  fullName: string;
+  createdAt: Timestamp;
+  updatedAt: Timestamp;
   email: string;
-  role: 'host' | 'vendor' | 'guest';
-  eventIds: string[];
+  photo: string;
+  role: ROLES;
+  events: string[];
   deleted: boolean;
 }

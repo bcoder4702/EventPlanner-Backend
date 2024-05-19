@@ -10,10 +10,12 @@ import { createOrUpdateUser } from '../middlewares/validators';
 
 const router = Router();
 
-router.get('/', getUsers);
-router.post('/', createOrUpdateUser, createUser);
-router.get('/:id', getUserWithId);
-router.patch('/:id', updateUser);
-router.delete('/:id', deleteUser);
+// router.get('/', getUsers);
+// router.post('/', createOrUpdateUser, createUser);
+// router.get('/:id', getUserWithId);
+// router.patch('/:id', updateUser);
+// router.delete('/:id', deleteUser);
+
+
 
 export default router;
