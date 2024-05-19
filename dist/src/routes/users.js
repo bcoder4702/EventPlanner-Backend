@@ -1,0 +1,11 @@
+import { Router } from 'express';
+import { createUser, getUsers, getUserWithId, updateUser, deleteUser } from '../controllers/users.js';
+import { createOrUpdateUser } from '../middlewares/validators';
+const router = Router();
+router.get('/', getUsers);
+router.post('/', createOrUpdateUser, createUser);
+router.get('/:id', getUserWithId);
+router.patch('/:id', updateUser);
+router.delete('/:id', deleteUser);
+export default router;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidXNlcnMuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi9zcmMvcm91dGVzL3VzZXJzLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE9BQU8sRUFBRSxNQUFNLEVBQUUsTUFBTSxTQUFTLENBQUM7QUFDakMsT0FBTyxFQUNMLFVBQVUsRUFDVixRQUFRLEVBQ1IsYUFBYSxFQUNiLFVBQVUsRUFDVixVQUFVLEVBQ1gsTUFBTSx5QkFBeUIsQ0FBQztBQUNqQyxPQUFPLEVBQUUsa0JBQWtCLEVBQUUsTUFBTSwyQkFBMkIsQ0FBQztBQUUvRCxNQUFNLE1BQU0sR0FBRyxNQUFNLEVBQUUsQ0FBQztBQUV4QixNQUFNLENBQUMsR0FBRyxDQUFDLEdBQUcsRUFBRSxRQUFRLENBQUMsQ0FBQztBQUMxQixNQUFNLENBQUMsSUFBSSxDQUFDLEdBQUcsRUFBRSxrQkFBa0IsRUFBRSxVQUFVLENBQUMsQ0FBQztBQUNqRCxNQUFNLENBQUMsR0FBRyxDQUFDLE1BQU0sRUFBRSxhQUFhLENBQUMsQ0FBQztBQUNsQyxNQUFNLENBQUMsS0FBSyxDQUFDLE1BQU0sRUFBRSxVQUFVLENBQUMsQ0FBQztBQUNqQyxNQUFNLENBQUMsTUFBTSxDQUFDLE1BQU0sRUFBRSxVQUFVLENBQUMsQ0FBQztBQUVsQyxlQUFlLE1BQU0sQ0FBQyJ9

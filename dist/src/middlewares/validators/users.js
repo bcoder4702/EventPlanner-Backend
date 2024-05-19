@@ -1,0 +1,12 @@
+import Joi from 'joi';
+// import { error } from '../../utils/response.js';
+export const createOrUpdateUser = async () => {
+    // Define the common part of the schema
+    return Joi.object({
+        email: Joi.string().email().required(),
+        password: Joi.string().min(6).required(),
+        name: Joi.string().min(3).required(),
+        role: Joi.string().valid('user', 'admin').required()
+    });
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidXNlcnMuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi9zcmMvbWlkZGxld2FyZXMvdmFsaWRhdG9ycy91c2Vycy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEdBQUcsTUFBTSxLQUFLLENBQUM7QUFFdEIsbURBQW1EO0FBRW5ELE1BQU0sQ0FBQyxNQUFNLGtCQUFrQixHQUFtQixLQUFLLElBQUksRUFBRTtJQUMzRCx1Q0FBdUM7SUFDdkMsT0FBTyxHQUFHLENBQUMsTUFBTSxDQUFDO1FBQ2hCLEtBQUssRUFBRSxHQUFHLENBQUMsTUFBTSxFQUFFLENBQUMsS0FBSyxFQUFFLENBQUMsUUFBUSxFQUFFO1FBQ3RDLFFBQVEsRUFBRSxHQUFHLENBQUMsTUFBTSxFQUFFLENBQUMsR0FBRyxDQUFDLENBQUMsQ0FBQyxDQUFDLFFBQVEsRUFBRTtRQUN4QyxJQUFJLEVBQUUsR0FBRyxDQUFDLE1BQU0sRUFBRSxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUMsQ0FBQyxRQUFRLEVBQUU7UUFDcEMsSUFBSSxFQUFFLEdBQUcsQ0FBQyxNQUFNLEVBQUUsQ0FBQyxLQUFLLENBQUMsTUFBTSxFQUFFLE9BQU8sQ0FBQyxDQUFDLFFBQVEsRUFBRTtLQUNyRCxDQUFDLENBQUM7QUFDTCxDQUFDLENBQUMifQ==
