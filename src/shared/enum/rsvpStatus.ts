@@ -1,0 +1,5 @@
+export enum RSVP_STATUS {
+  ACCEPTED = 'ACCEPTED',
+  DECLINED = 'DECLINED',
+  PENDING = 'PENDING'
+}

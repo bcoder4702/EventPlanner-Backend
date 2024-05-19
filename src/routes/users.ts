@@ -10,7 +10,13 @@ import { createOrUpdateUser } from '../middlewares/validators';
 
 const router = Router();
 
-router.get('/', getUsers);
+// router.get('/', getUsers);
+// router.post('/', createOrUpdateUser, createUser);
+// router.get('/:id', getUserWithId);
+// router.patch('/:id', updateUser);
+// router.delete('/:id', deleteUser);
+
+// Route for making a new user - ORGANIZER, VENDOR, GUEST
 router.post('/', createOrUpdateUser, createUser);
 router.get('/:id', getUserWithId);
 router.patch('/:id', updateUser);
