@@ -1,5 +1,5 @@
-import { Timestamp } from "firebase/firestore";
-import { MEMBER_ROLE_TYPE } from "../shared/enum/index";
+import { Timestamp } from 'firebase/firestore';
+import { MEMBER_ROLE_TYPE } from '../shared/enum/index';
 
 export interface GroupMember {
   id: string;

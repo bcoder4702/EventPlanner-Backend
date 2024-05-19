@@ -1,5 +1,5 @@
-import { Timestamp } from "firebase/firestore";
-import { GROUP_TYPE } from "../shared/enum/groupType";
+import { Timestamp } from 'firebase/firestore';
+import { GROUP_TYPE } from '../shared/enum/groupType';
 
 export interface Group {
   id: string;
@@ -7,4 +7,5 @@ export interface Group {
   members: string[];
   createdAt: Timestamp;
   type: GROUP_TYPE;
+  deleted: boolean;
 }

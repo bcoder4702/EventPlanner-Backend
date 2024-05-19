@@ -16,6 +16,10 @@ const router = Router();
 // router.patch('/:id', updateUser);
 // router.delete('/:id', deleteUser);
 
-
+// Route for making a new user - ORGANIZER, VENDOR, GUEST
+router.post('/', createOrUpdateUser, createUser);
+router.get('/:id', getUserWithId);
+router.patch('/:id', updateUser);
+router.delete('/:id', deleteUser);
 
 export default router;

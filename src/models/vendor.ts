@@ -1,5 +1,5 @@
-import { Timestamp } from "firebase/firestore";
-import { SERVICE } from "../shared/enum/index";
+import { Timestamp } from 'firebase/firestore';
+import { SERVICE } from '../shared/enum/index';
 
 export interface Vendor {
   id: string;

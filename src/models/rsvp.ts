@@ -1,5 +1,5 @@
-import { Timestamp } from "firebase/firestore";
-import { RSVP_STATUS } from "../shared/enum/index";
+import { Timestamp } from 'firebase/firestore';
+import { RSVP_STATUS } from '../shared/enum/index';
 
 export interface RSVP {
   id: string;
