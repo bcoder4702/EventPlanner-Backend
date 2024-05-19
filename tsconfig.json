@@ -16,5 +16,6 @@
   "ts-node": {
     "esm": true
   },
-  "lib": ["esnext"]
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
 }
