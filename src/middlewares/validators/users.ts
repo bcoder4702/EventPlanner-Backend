@@ -2,12 +2,12 @@ import Joi from 'joi';
 import { RequestHandler } from 'express';
 import { error } from '../../utils/response.js';
 
-const createOrUpdateUser: RequestHandler = async (req, res, next) => {
+const createUser: RequestHandler = async (req, res, next) => {
   // Define the common part of the schema
   const schema = Joi.object({
     phone: Joi.string().optional(),
     email: Joi.string().email().optional(),
-    password: Joi.string().min(6).required(),
+    // password: Joi.string().min(6).required(),
     name: Joi.string().min(3).required(),
     photo: Joi.string().optional(),
     role: Joi.string().valid('ORGANIZER', 'VENDOR', 'GUEST').required(),
@@ -62,7 +62,7 @@ const deleteUser: RequestHandler = async (req, res, next) => {
 };
 
 export default {
-  createOrUpdateUser,
+  createUser,
   getUserWithId,
   updateUser,
   deleteUser

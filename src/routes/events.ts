@@ -6,6 +6,7 @@ import {
   updateEventById,
   deleteEventById
 } from '../controllers/events.js';
+import validators from '../middlewares/validators/events.js';
 
 const router = Router();
 
@@ -15,10 +16,10 @@ const router = Router();
 // getEvent with id
 // /api/events/1234
 
-router.post('/', createEvent);
-router.get('/', getAllEvents);
-router.get('/:id', getEventById);
-router.put('/:id', updateEventById);
-router.delete('/:id', deleteEventById);
+router.post('/',validators.createEvent,createEvent);
+// router.get('/', getAllEvents);
+router.get('/:id',validators.getEventById, getEventById);
+router.put('/:id',validators.updateEventById, updateEventById);
+router.delete('/:id',validators.deleteEventById, deleteEventById);
 
 export default router;

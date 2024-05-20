@@ -12,8 +12,10 @@ import { Timestamp } from 'firebase/firestore';
 export const createUser: RequestHandler = async (req, res) => {
   try {
     const data = req.body;
+    const servicetype = Array.isArray(req.query.servicetype) ? req.query.servicetype[0] : req.query.servicetype;
     data.created_at = Timestamp.fromDate(new Date());
-    const docId = await createUserQuery(data);
+    if (!servicetype) return res.status(400).json(error('Service type is required', 400));
+    const docId = await createUserQuery(data, servicetype.toString()); // Convert servicetype to string
 
     // returning the id of the created user
     res.status(200).json(success('User created successfully', docId, 200));

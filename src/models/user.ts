@@ -4,7 +4,7 @@ import { ROLES } from '../shared/enum/index';
 export interface User {
   id: string;
   name: string;
-  password: string;
+  // password: string;
   mobile: string;
   createdAt: Timestamp;
   updatedAt: Timestamp;
