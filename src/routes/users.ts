@@ -6,20 +6,14 @@ import {
   updateUser,
   deleteUser
 } from '../controllers/users.js';
-import { createOrUpdateUser } from '../middlewares/validators';
+import validators from '../middlewares/validators/users.js';
 
 const router = Router();
 
-// router.get('/', getUsers);
-// router.post('/', createOrUpdateUser, createUser);
-// router.get('/:id', getUserWithId);
-// router.patch('/:id', updateUser);
-// router.delete('/:id', deleteUser);
-
 // Route for making a new user - ORGANIZER, VENDOR, GUEST
-router.post('/', createOrUpdateUser, createUser);
-router.get('/:id', getUserWithId);
-router.patch('/:id', updateUser);
-router.delete('/:id', deleteUser);
+router.post('/', validators.createOrUpdateUser, createUser);
+router.get('/:id', validators.getUserWithId, getUserWithId);
+router.patch('/:id', validators.updateUser, updateUser);
+router.delete('/:id', validators.deleteUser, deleteUser);
 
 export default router;
