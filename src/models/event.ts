@@ -7,10 +7,13 @@ export interface Event {
   location: string;
   description: string;
   organizerId: string;
-  deleted: boolean;
+  guestList: string[];
+  vendorList: string[];
+  deleted: boolean | false;
   createdAt: Timestamp;
   updatedAt: Timestamp;
   time: Timestamp;
   theme: string;
+  colortheme: string,
   venue: string;
 }

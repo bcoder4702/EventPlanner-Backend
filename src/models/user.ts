@@ -5,12 +5,12 @@ export interface User {
   id: string;
   name: string;
   // password: string;
-  mobile: string;
+  phone: string;
   createdAt: Timestamp;
   updatedAt: Timestamp;
   email: string;
   photo: string;
   role: ROLES;
   events: string[];
-  deleted: boolean;
+  deleted: boolean | false;
 }

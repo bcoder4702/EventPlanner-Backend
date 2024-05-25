@@ -5,10 +5,9 @@ import { error } from '../../utils/response.js';
 const createUser: RequestHandler = async (req, res, next) => {
   // Define the common part of the schema
   const schema = Joi.object({
+    name: Joi.string().min(3).required(),
     phone: Joi.string().optional(),
     email: Joi.string().email().optional(),
-    // password: Joi.string().min(6).required(),
-    name: Joi.string().min(3).required(),
     photo: Joi.string().optional(),
     role: Joi.string().valid('ORGANIZER', 'VENDOR', 'GUEST').required(),
     events: Joi.array().items(Joi.string()).optional(),

@@ -10,14 +10,10 @@ import validators from '../middlewares/validators/events.js';
 
 const router = Router();
 
-//  events with Organizer, Vendor, Guest id
-// /api/events?entityId=1234&entityType=ORGANIZER
-
-// getEvent with id
-// /api/events/1234
+// there will be a middleware for verifying the user 
 
 router.post('/',validators.createEvent,createEvent);
-// router.get('/', getAllEvents);
+router.get('/',validators.getALLEvents,getAllEvents);
 router.get('/:id',validators.getEventById, getEventById);
 router.put('/:id',validators.updateEventById, updateEventById);
 router.delete('/:id',validators.deleteEventById, deleteEventById);
