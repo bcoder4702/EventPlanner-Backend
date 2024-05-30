@@ -2,10 +2,11 @@ import { Timestamp } from 'firebase/firestore';
 
 export interface Budget {
   id: string;
-  organizerId: string;
+  eventId: string;
+  vendorId: string;
   totalBudget: number;
   allocatedBudget: number;
-  remainingBudget: number;
+  deleted: boolean;
   createdAt: Timestamp;
   updatedAt: Timestamp;
 }
