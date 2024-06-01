@@ -6,5 +6,6 @@ export interface Guest {
   name: string;
   email: string;
   phone: string;
+  seats: string[],
   createdAt: Timestamp;
 }

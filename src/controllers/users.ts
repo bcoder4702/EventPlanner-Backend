@@ -1,4 +1,4 @@
-import { RequestHandler } from 'express';
+import { RequestHandler, query } from 'express';
 import {
   createUserQuery,
   getUsersQuery,
@@ -6,10 +6,12 @@ import {
   updateUserQuery,
   deleteUserQuery,
   getUserByEmailorPhoneQuery,
-  createGuestQuery
+  createGuestQuery,
+  getGuestByEmailQuery,
+  updateGuestQuery
 } from '../services/users.js';
 import { success, error } from '../utils/response.js';
-import { Timestamp, arrayUnion } from 'firebase/firestore';
+import { Timestamp, arrayUnion, collection, where } from 'firebase/firestore';
 import { db } from '../../database/firebase';
 // import { Event } from '../models';
 import { updateDoc, doc } from 'firebase/firestore';
@@ -45,6 +47,17 @@ export const createUser: RequestHandler = async (req, res) => {
 export const createGuest: RequestHandler = async (req, res) => {
   try {
     const eventId = req.query.eventid as string;
+    const guest = await getGuestByEmailQuery(req.body.email);
+    if(guest) { 
+      guest.seats = req.body.seats;
+      await updateGuestQuery(guest.id, guest);
+      const eventDocRef = doc(db, 'events', eventId);
+       await updateDoc(eventDocRef, {
+      guestList: arrayUnion(guest.id),
+    });
+    return res.status(200).json({ message: 'Guest updated and event updated successfully' });
+    }
+    else{
     const data = {
       ...req.body,
       role: 'GUEST',
@@ -58,7 +71,8 @@ export const createGuest: RequestHandler = async (req, res) => {
     res
       .status(201)
       .json({ message: 'Guest created and event updated successfully' });
-  } catch (e) {
+  } 
+}catch (e) {
     res.status(500).json(error('Something went wrong!', 500));
   }
 };

@@ -123,3 +123,28 @@ export const getUserIdByOrganizerIdQuery = async (id: string): Promise<string | 
   if (!organizer.exists()) return null;
   return organizer.data().uid;
 }
+
+
+export const getGuestByEmailQuery = async (email: string): Promise<Guest | null> => {
+  const guests = collection(db, 'guests');
+  const guestQuery = await getDocs(guests);
+  let guest: Guest | null = null;
+  guestQuery.forEach((doc) => {
+    const guestDoc = doc.data() as Guest;
+    if (guestDoc.email === email) {
+      guest = guestDoc;
+    }
+  });
+  return guest;
+};
+
+export const updateGuestQuery = async (
+  id: string,
+  data: object
+): Promise<Guest | null> => {
+  const guestDoc = doc(db, 'guests', id);
+  await updateDoc(guestDoc, data);
+  const updatedGuest = await getDoc(guestDoc);
+  if (!updatedGuest.exists()) return null;
+  return updatedGuest.data() as Guest;
+}
